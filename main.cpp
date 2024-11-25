@@ -6,32 +6,32 @@ using namespace std;
 
 void Menu() {
     // Function to print the game name and menu options
-    cout << " /$$      /$$                           /$$ /$$          " << endl;
-    cout << "| $$  /$ | $$                          | $$| $$          " << endl;
-    cout << "| $$ /$$$| $$  /$$$$$$   /$$$$$$   /$$$$$$$| $$  /$$$$$$ " << endl;
-    cout << "| $$/$$ $$ $$ /$$__  $$ /$$__  $$ /$$__  $$| $$ /$$__  $$" << endl;
-    cout << "| $$$$_  $$$$| $$  | $$| $$  |__/| $$  | $$| $$| $$$$$$$$" << endl;
-    cout << "| $$$/ |  $$$| $$  | $$| $$      | $$  | $$| $$| $$_____/ " << endl;
-    cout << "| $$/   |  $$|  $$$$$$/| $$      |  $$$$$$$| $$|  $$$$$$$ " << endl;
-    cout << "|__/     |__/ \\______/ |__/       |_______/|__/ |_______/ " << endl;
+    std::cout << " /$$      /$$                           /$$ /$$          " << endl;
+    std::cout << "| $$  /$ | $$                          | $$| $$          " << endl;
+    std::cout << "| $$ /$$$| $$  /$$$$$$   /$$$$$$   /$$$$$$$| $$  /$$$$$$ " << endl;
+    std::cout << "| $$/$$ $$ $$ /$$__  $$ /$$__  $$ /$$__  $$| $$ /$$__  $$" << endl;
+    std::cout << "| $$$$_  $$$$| $$  | $$| $$  |__/| $$  | $$| $$| $$$$$$$$" << endl;
+    std::cout << "| $$$/ |  $$$| $$  | $$| $$      | $$  | $$| $$| $$_____/ " << endl;
+    std::cout << "| $$/   |  $$|  $$$$$$/| $$      |  $$$$$$$| $$|  $$$$$$$ " << endl;
+    std::cout << "|__/     |__/ \\______/ |__/       |_______/|__/ |_______/ " << endl;
 
     int choice;
-    int choiceDifficult
+    int choiceDifficult;
 
         do {
-            cout << "\nMain Menu:\n";
-            cout << "   1. Play\n   2. How To Play\n   3. Exit\n";
-            cout << "Enter your choice: ";
+            std::cout << "\nMain Menu:\n";
+            std::cout << "   1. Play\n   2. How To Play\n   3. Exit\n";
+            std::cout << "Enter your choice: ";
             cin >> choice;
             cin >> choiceDifficult;
 
             switch (choice) {
             case 1: {
                 // Play the game
-                cout << "Choose difficulty:\n";
-                cout << "\033[32m" << "1.Easy";
-                cout << "\033[33m" << "2.Medium";
-                cout << "\033[31m" << "3.Hard";
+                std::cout << "Choose difficulty:\n";
+                std::cout << "\033[32m" << "1.Easy";
+                std::cout << "\033[33m" << "2.Medium";
+                std::cout << "\033[31m" << "3.Hard";
 
                 switch (choiceDifficult) {
                     // Choose difficulty
@@ -53,18 +53,18 @@ void Menu() {
                     char guess[6];               // The player's guess
                     const int maxTries = 6;      // Number of attempts allowed
 
-                    cout << "\nWelcome to Wordle! You have " << maxTries << " attempts to guess the word.\n";
-                    cout << "Hints: '*' means correct letter and position, '+' means correct letter but wrong position.\n";
-                    cout << "Hint for the word: This is a fruit and the word starts with a capital letter.\n";
+                    std::cout << "\nWelcome to Wordle! You have " << maxTries << " attempts to guess the word.\n";
+                    std::cout << "Hints: '*' means correct letter and position, '+' means correct letter but wrong position.\n";
+                    std::cout << "Hint for the word: This is a fruit and the word starts with a capital letter.\n";
 
                     bool won = false;
 
                     for (int attempt = 1; attempt <= maxTries; ++attempt) {
-                        cout << "\nAttempt " << attempt << " - Enter your 5-letter word: " << endl;
+                        std::cout << "\nAttempt " << attempt << " - Enter your 5-letter word: " << endl;
 
-                        cout << "+------+" << endl;
+                        std::cout << "+------+" << endl;
                         cin >> guess;
-                        cout << "+------+" << endl;
+                        std::cout << "+------+" << endl;
 
                         // Manual length check
                         int length = 0;
@@ -77,7 +77,7 @@ void Menu() {
 
                         // Validate input length
                         if (length != 5) {
-                            cout << "Please enter a valid 5-letter word.\n";
+                            std::cout << "Please enter a valid 5-letter word.\n";
                             --attempt; // Don't count invalid input as an attempt
                             continue;
                         }
@@ -106,26 +106,26 @@ void Menu() {
                             }
                         }
 
-                        cout << "Feedback: ";
+                        std::cout << "Feedback: ";
                         for (int i = 0; i < 5; ++i) {
                             if (feedback[i] == '*')
-                                cout << "\033[1;32m" << guess[i] << "\033[0m"; // Green for correct
+                                std::cout << "\033[1;32m" << guess[i] << "\033[0m"; // Green for correct
                             else if (feedback[i] == '+')
-                                cout << "\033[1;33m" << guess[i] << "\033[0m"; // Yellow for misplaced
+                                std::cout << "\033[1;33m" << guess[i] << "\033[0m"; // Yellow for misplaced
                             else
-                                cout << "\033[1;31m" << guess[i] << "\033[0m"; // Red for incorrect
+                                std::cout << "\033[1;31m" << guess[i] << "\033[0m"; // Red for incorrect
                         }
-                        cout << endl;
+                        std::cout << endl;
 
                         if (correct) {
-                            cout << "Congratulations! You've guessed the word: " << word << "!\n";
+                            std::cout << "Congratulations! You've guessed the word: " << word << "!\n";
                             won = true;
                             break;
                         }
                     }
 
                     if (!won) {
-                        cout << "Sorry! You've used all your attempts. The word was: " << word << ". Better luck next time!\n";
+                        std::cout << "Sorry! You've used all your attempts. The word was: " << word << ". Better luck next time!\n";
                     }
 
                     static int wins = 0, losses = 0;
@@ -136,7 +136,7 @@ void Menu() {
                         ++losses;
                     }
 
-                    cout << "\nYour score: " << wins << " Wins, " << losses << " Losses\n";
+                    std::cout << "\nYour score: " << wins << " Wins, " << losses << " Losses\n";
                     // Adds scoring
 
 
@@ -164,18 +164,18 @@ void Menu() {
                     char guess[6];               // The player's guess
                     const int maxTries = 6;      // Number of attempts allowed
 
-                    cout << "\nWelcome to Wordle! You have " << maxTries << " attempts to guess the word.\n";
-                    cout << "Hints: '*' means correct letter and position, '+' means correct letter but wrong position.\n";
-                    cout << "Hint for the word: This is a fruit and the word starts with a capital letter.\n";
+                    std::cout << "\nWelcome to Wordle! You have " << maxTries << " attempts to guess the word.\n";
+                    std::cout << "Hints: '*' means correct letter and position, '+' means correct letter but wrong position.\n";
+                    std::cout << "Hint for the word: This is a fruit and the word starts with a capital letter.\n";
 
                     bool won = false;
 
                     for (int attempt = 1; attempt <= maxTries; ++attempt) {
-                        cout << "\nAttempt " << attempt << " - Enter your 5-letter word: " << endl;
+                        std::cout << "\nAttempt " << attempt << " - Enter your 5-letter word: " << endl;
 
-                        cout << "+------+" << endl;
+                        std::cout << "+------+" << endl;
                         cin >> guess;
-                        cout << "+------+" << endl;
+                        std::cout << "+------+" << endl;
 
                         // Manual length check
                         int length = 0;
@@ -188,7 +188,7 @@ void Menu() {
 
                         // Validate input length
                         if (length != 5) {
-                            cout << "Please enter a valid 5-letter word.\n";
+                            std::cout << "Please enter a valid 5-letter word.\n";
                             --attempt; // Don't count invalid input as an attempt
                             continue;
                         }
@@ -217,26 +217,26 @@ void Menu() {
                             }
                         }
 
-                        cout << "Feedback: ";
+                        std::cout << "Feedback: ";
                         for (int i = 0; i < 5; ++i) {
                             if (feedback[i] == '*')
-                                cout << "\033[1;32m" << guess[i] << "\033[0m"; // Green for correct
+                                std::cout << "\033[1;32m" << guess[i] << "\033[0m"; // Green for correct
                             else if (feedback[i] == '+')
-                                cout << "\033[1;33m" << guess[i] << "\033[0m"; // Yellow for misplaced
+                                std::cout << "\033[1;33m" << guess[i] << "\033[0m"; // Yellow for misplaced
                             else
-                                cout << "\033[1;31m" << guess[i] << "\033[0m"; // Red for incorrect
+                                std::cout << "\033[1;31m" << guess[i] << "\033[0m"; // Red for incorrect
                         }
-                        cout << endl;
+                        std::cout << endl;
 
                         if (correct) {
-                            cout << "Congratulations! You've guessed the word: " << word << "!\n";
+                            std::cout << "Congratulations! You've guessed the word: " << word << "!\n";
                             won = true;
                             break;
                         }
                     }
 
                     if (!won) {
-                        cout << "Sorry! You've used all your attempts. The word was: " << word << ". Better luck next time!\n";
+                        std::cout << "Sorry! You've used all your attempts. The word was: " << word << ". Better luck next time!\n";
                     }
 
                     static int wins = 0, losses = 0;
@@ -247,7 +247,7 @@ void Menu() {
                         ++losses;
                     }
 
-                    cout << "\nYour score: " << wins << " Wins, " << losses << " Losses\n";
+                    std::cout << "\nYour score: " << wins << " Wins, " << losses << " Losses\n";
                     // Adds scoring
                     break;
                 }
@@ -272,14 +272,14 @@ void Menu() {
                     char guess[6];               // The player's guess
                     const int maxTries = 6;      // Number of attempts allowed
 
-                    cout << "\nWelcome to Wordle! You have " << maxTries << " attempts to guess the word.\n";
-                    cout << "Hints: '*' means correct letter and position, '+' means correct letter but wrong position.\n";
-                    cout << "Hint for the word: This is a fruit and the word starts with a capital letter.\n";
+                    std::cout << "\nWelcome to Wordle! You have " << maxTries << " attempts to guess the word.\n";
+                    std::cout << "Hints: '*' means correct letter and position, '+' means correct letter but wrong position.\n";
+                    std::cout << "Hint for the word: This is a fruit and the word starts with a capital letter.\n";
 
                     bool won = false;
 
                     for (int attempt = 1; attempt <= maxTries; ++attempt) {
-                        cout << "\nAttempt " << attempt << " - Enter your 5-letter word: " << endl;
+                        std::cout << "\nAttempt " << attempt << " - Enter your 5-letter word: " << endl;
 
 
                         cin >> guess;
@@ -296,7 +296,7 @@ void Menu() {
 
                         // Validate input length
                         if (length != 5) {
-                            cout << "Please enter a valid 5-letter word.\n";
+                            std::cout << "Please enter a valid 5-letter word.\n";
                             --attempt; // Don't count invalid input as an attempt
                             continue;
                         }
@@ -325,26 +325,26 @@ void Menu() {
                             }
                         }
 
-                        cout << "Feedback: ";
+                        std::cout << "Feedback: ";
                         for (int i = 0; i < 5; ++i) {
                             if (feedback[i] == '*')
-                                cout << "\033[1;32m" << guess[i] << "\033[0m"; // Green for correct
+                                std::cout << "\033[1;32m" << guess[i] << "\033[0m"; // Green for correct
                             else if (feedback[i] == '+')
-                                cout << "\033[1;33m" << guess[i] << "\033[0m"; // Yellow for misplaced
+                                std::cout << "\033[1;33m" << guess[i] << "\033[0m"; // Yellow for misplaced
                             else
-                                cout << "\033[1;31m" << guess[i] << "\033[0m"; // Red for incorrect
+                                std::cout << "\033[1;31m" << guess[i] << "\033[0m"; // Red for incorrect
                         }
-                        cout << endl;
+                        std::cout << endl;
 
                         if (correct) {
-                            cout << "Congratulations! You've guessed the word: " << word << "!\n";
+                            std::cout << "Congratulations! You've guessed the word: " << word << "!\n";
                             won = true;
                             break;
                         }
                     }
 
                     if (!won) {
-                        cout << "Sorry! You've used all your attempts. The word was: " << word << ". Better luck next time!\n";
+                        std::cout << "Sorry! You've used all your attempts. The word was: " << word << ". Better luck next time!\n";
                     }
 
                     static int wins = 0, losses = 0;
@@ -355,7 +355,7 @@ void Menu() {
                         ++losses;
                     }
 
-                    cout << "\nYour score: " << wins << " Wins, " << losses << " Losses\n";
+                    std::cout << "\nYour score: " << wins << " Wins, " << losses << " Losses\n";
                     // Adds scoring
                     break;
 
@@ -369,21 +369,21 @@ void Menu() {
 
             case 2:
                 // Tutorial on how to play
-                cout << "\nHow to Play:\n";
-                cout << "1. Start with a Guess: Enter any valid 5-letter word to gather clues about the hidden word.\n";
-                cout << "2. Check the Feedback: '*' = correct position, '+' = correct letter but wrong position, '-' = not in the word.\n";
-                cout << "3. Refine Your Guesses: Use feedback to make smarter guesses; avoid repeating incorrect letters.\n";
-                cout << "4. Win or Lose: Guess the word in 6 tries to win; otherwise, the hidden word is revealed.\n";
+                std::cout << "\nHow to Play:\n";
+                std::cout << "1. Start with a Guess: Enter any valid 5-letter word to gather clues about the hidden word.\n";
+                std::cout << "2. Check the Feedback: '*' = correct position, '+' = correct letter but wrong position, '-' = not in the word.\n";
+                std::cout << "3. Refine Your Guesses: Use feedback to make smarter guesses; avoid repeating incorrect letters.\n";
+                std::cout << "4. Win or Lose: Guess the word in 6 tries to win; otherwise, the hidden word is revealed.\n";
                 break;
 
             case 3:
                 // Exit the game
-                cout << "Goodbye! Thanks for playing.\n";
+                std::cout << "Goodbye! Thanks for playing.\n";
                 return; // Exit the menu
                 break;
 
             default:
-                cout << "Invalid option. Please choose 1, 2, or 3.\n";
+                std::cout << "Invalid option. Please choose 1, 2, or 3.\n";
                 break;
             }
         } while (choice != 3);
@@ -392,7 +392,7 @@ void Menu() {
 int main() {
     do { // Replay option
         Menu();
-        cout << "\nDo you want to play again? (y/n): ";
+        std::cout << "\nDo you want to play again? (y/n): ";
         char replay;
         cin >> replay;
         if (replay != 'y' && replay != 'Y') {
