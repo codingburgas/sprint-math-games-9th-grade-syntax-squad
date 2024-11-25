@@ -1,6 +1,5 @@
 #include <iostream>
-#include <cstdlib> // For rand() and srand()
-#include <ctime>   // For seeding rand()
+#include <cstdlib> // For rand()
 
 
 void Game() {
@@ -50,8 +49,8 @@ void Game() {
         "court", "mind", "heard", "learn", "south", "north", "build", "trade", "peace", "shows",
         "helps", "check", "claim", "dream", "based", "reach", "event", "style", "wrong", "force",
         "focus", "local", "stage", "broke", "wrote", "calls" };
-                srand(time(0));
-                const char* word = words[rand() % 6]; // Choose a random word
+                
+                const char* word = words[rand() % 130]; // Choose a random word
                 char guess[6];               // The player's guess
                 const int maxTries = 6;      // Number of attempts allowed
 
@@ -161,8 +160,8 @@ void Game() {
 "terms", "makes", "month", "clear", "truth", "quite", "court", "mind", "heard", "south",
 "north", "build", "trade", "peace", "shows", "helps", "check", "claim", "based", "reach",
 "event", "style", "wrong", "force", "focus", "local", "stage", "broke", "wrote", "calls" };
-                srand(time(0));
-                const char* word = words[rand() % 6]; // Choose a random word
+                
+                const char* word = words[rand() % 130]; // Choose a random word
                 char guess[6];               // The player's guess
                 const int maxTries = 6;      // Number of attempts allowed
 
@@ -269,8 +268,8 @@ void Game() {
 "slant", "blaze", "spurn", "witty", "grunt", "quash", "brawn", "brunt", "glare", "surge",
 "relic", "vexed", "wrath", "swirl", "crest", "chant", "gruff", "grove", "gaunt", "spine",
 "whirl", "flock", "brave", "clang", "froze", "gorge", "lurch", "pique", "shard", "verve" };
-                srand(time(0));
-                const char* word = words[rand() % 6]; // Choose a random word
+                
+                const char* word = words[rand() % 130]; // Choose a random word
                 char guess[6];               // The player's guess
                 const int maxTries = 6;      // Number of attempts allowed
 
